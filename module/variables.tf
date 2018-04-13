@@ -99,3 +99,8 @@ variable "kubernetes_networking" {
 variable "master_k8s_cpu_threshold" {
   default = 80
 }
+
+variable "ssh_public_key_path" {
+  type = "string"
+  description = "ssh public key cause kops needs to embed it into user-data"
+}
