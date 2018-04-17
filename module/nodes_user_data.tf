@@ -13,6 +13,9 @@ data "template_file" "node_user_data_3" {
     kubernetes_version = "${var.kubernetes_version}"
     cluster_fqdn       = "${local.cluster_fqdn}"
     docker_version     = "${local.docker_version}"
+    region             = "${data.aws_region.current.name}"
+    awslogs_group      = "${var.cluster_name}"
+    awslogs_stream     = "nodes"
   }
 }
 

@@ -16,6 +16,9 @@ data "template_file" "master_user_data_3" {
     master_count       = "${local.master_resource_count}"
     cluster_fqdn       = "${local.cluster_fqdn}"
     docker_version     = "${local.docker_version}"
+    region             = "${data.aws_region.current.name}"
+    awslogs_group      = "${var.cluster_name}"
+    awslogs_stream     = "masters"
   }
 }
 

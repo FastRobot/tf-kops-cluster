@@ -90,4 +90,16 @@ data "aws_iam_policy_document" "nodes" {
 
     resources = ["*"]
   }
+
+  statement {
+    sid = "kopsK8sLogs"
+    effect = "Allow"
+
+    actions = [
+      "logs:CreateLogStream",
+      "logs:PutLogEvents"
+    ]
+
+    resources = ["*"]
+  }
 }
