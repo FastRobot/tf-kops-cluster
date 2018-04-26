@@ -1,6 +1,6 @@
 ### ASG OnDemand Instances
 resource "aws_autoscaling_group" "node" {
-  depends_on           = ["null_resource.create_cluster"]
+  depends_on           = ["null_resource.delete_tf_files"]
   name                 = "${var.cluster_name}_node"
   launch_configuration = "${aws_launch_configuration.node.id}"
   max_size             = "${var.node_asg_max}"
@@ -41,6 +41,13 @@ resource "aws_autoscaling_group" "node" {
     value               = "1"
     propagate_at_launch = true
   }
+
+  tag = {
+    key = "cluster_spec_yaml"
+    value = "${null_resource.create_cluster.id}"
+    propagate_at_launch = true
+  }
+
 }
 
 resource "aws_launch_configuration" "node" {

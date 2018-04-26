@@ -7,6 +7,9 @@ variable "cluster_fqdn" {}
 # ID of the VPC
 variable "vpc_id" {}
 
+# CIDR of the entire VPC
+variable "cidr" {}
+
 # Route53 zone ID
 variable "route53_zone_id" {}
 

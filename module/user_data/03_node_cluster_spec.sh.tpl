@@ -12,7 +12,6 @@ docker:
   logOpt:
   - awslogs-region=${region}
   - awslogs-group=${awslogs_group}
-  - awslogs-stream=${awslogs_stream}
   storage: overlay,aufs
   version: 1.13.1
 kubeProxy:
